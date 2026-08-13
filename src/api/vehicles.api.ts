@@ -7,9 +7,15 @@ export type Paginated<T> = {
   results: T[];
 };
 
-export type Vehicles = { id: number; nombre: string };
+export type Vehicles = { 
+    id: number; 
+    plate: string; 
+    brand: string; 
+    daily_rate: number;
 
-export async function listVehiclessApi() {
+};
+
+export async function listVehiclesApi() {
   const { data } = await http.get<Paginated<Vehicles>>("/api/vehicles/");
   return data; // { count, next, previous, results }
 }
